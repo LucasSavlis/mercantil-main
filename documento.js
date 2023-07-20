@@ -54,8 +54,67 @@ atualizarDataHora();
 
 // Obter os valores dos parâmetros de consulta (query string)
 var queryString = window.location.search;
+var produtos;
 
 var urlParams = new URLSearchParams(queryString);
+
+const storedProdutos = localStorage.getItem("produtos");
+  if (storedProdutos) {
+    produtos = JSON.parse(storedProdutos);
+  }
+
+function matriz(){
+  for (let index = 0; index < produtos.length; index++) {
+    
+    var card = document.getElementById("camp");
+    var element = document.createElement("div");
+    element.classList.add("campo");
+    
+    const item = produtos[index][0];
+    const codigo = produtos[index][3];
+    const descricao = produtos[index][6];
+    const NCM = produtos[index][1];
+    const QTD = produtos[index][2];
+    const vlrUnit = produtos[index][4];
+    const vlrTotal = produtos[index][5];
+    const detalhes = produtos[index][7];
+
+    element.innerHTML = 
+        `
+        <div class="line-box">
+        <div class="box">Item</div>
+        <div class="box">Código</div>
+        <div class="box">Descrição</div>
+        <div class="box">NCM</div>
+        <div class="box">Qtd</div>
+        <div class="box">Vlr Unitario</div>
+        <div class="box">Vlr Total</div>
+      </div>
+      <div class="line-box">
+        <input type="text" id="itemP" value="${item}"/>
+        <input type="text" id="codigoP" value="${codigo}"/>
+        <input type="text" id="descricaoP" value="${descricao}"/>
+        <input type="text" id="ncmP" value="${NCM}"/>
+        <input type="text" id="qtdadeP" value="${QTD}"/>
+        <input type="text" id="vlrunitarioP"value="${vlrUnit}"/>
+        <input type="text" id="vlrtotalP"value="${vlrTotal}"/>
+      </div>
+  
+      <div id="details" class="line-box">
+        <div class="box">Detalhes:</div>
+      </div>
+      <div id="details" class="line-box">
+        <textarea name="" id="detalhesP" cols="30" rows="10">${detalhes}</textarea>
+      </div>
+        `
+    card.appendChild(element);
+  }
+}
+matriz();
+
+
+
+
 
 var numero = urlParams.get('numero');
 var dataValidade = urlParams.get('datavalidade');
@@ -92,11 +151,7 @@ var totICMS = urlParams.get ('tot-icms-incluso');
 var freteT = urlParams.get ('frete-t');
 var totalT = urlParams.get('total-t');
 
-// const storedProdutos = localStorage.getItem("produtos");
-//   if (storedProdutos) {
-//     produtos = JSON.parse(storedProdutos);
-//   }
-//   console.log(produtos);
+
 // Definir os valores nos campos correspondentes no documento HTML
 
 document.getElementById("numeroDocumento").value = numero;
