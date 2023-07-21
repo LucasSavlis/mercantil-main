@@ -112,10 +112,6 @@ function matriz(){
 }
 matriz();
 
-
-
-
-
 var numero = urlParams.get('numero');
 var dataValidade = urlParams.get('datavalidade');
 var formaPagamento = urlParams.get('forma-pag')

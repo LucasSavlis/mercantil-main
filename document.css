@@ -97,6 +97,7 @@ h2 {
   font-weight: 700;
 }
 
+
 #totICMS{
   display: flex;
   align-self: center;
@@ -156,19 +157,18 @@ h2 {
   align-items: center;
   gap: 0.41775rem;
   align-self: stretch;
-
   /* border: 0.668px solid red ; */
 }
 
 .line-box {
   display: flex;
-
   width: 100%;
   align-items: center;
   gap: 0.41775rem;
-  page-break-inside: auto;
   align-self: stretch;
 }
+
+
 
 .box {
   font-size: 0.75rem;
@@ -187,6 +187,11 @@ h2 {
   gap: 0;
   page-break-inside: avoid;
 
+}
+
+#transporte .campo {
+  page-break-inside: avoid;
+  background-color: #214DF6;
 }
 
 #produto .line-box {
