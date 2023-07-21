@@ -199,7 +199,6 @@ function limparP(){
   document.getElementById("detalhes-p").value = "";
 }
 
-
 function handleProductSubmit(event) {
   event.preventDefault();
   cont();
@@ -215,7 +214,7 @@ function handleProductSubmit(event) {
 
   const elemento =[itemP , ncmP , qtdadeP , codigoP , vlrunitarioP , vlrtotalP , descricaoP , detalhesP];
   produtos.push(elemento);
-  console.log(produtos);
+  // console.log(produtos);
 
   limparP();
 }
